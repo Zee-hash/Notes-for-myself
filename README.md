@@ -9,4 +9,6 @@ Learning is not just 'IN', but 'OUT' is equally important.
 [文件管理](./操作系统/第四章/文件管理.md)  
 [IO管理](./操作系统/第五章/IO管理.md)
 
-## N
+## 计算机组成原理
+[计算机系统概述](./计算机组成原理/第一章/计算机系统概述.md)  
+
