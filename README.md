@@ -1,5 +1,4 @@
 # Notes-for-myself
-Learning is not just 'IN', but 'OUT' is equally important.
 
 ## 操作系统  
 [操作系统简介](./操作系统/第一章/操作系统简介.md)  
