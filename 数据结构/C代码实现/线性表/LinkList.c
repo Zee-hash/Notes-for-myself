@@ -4,7 +4,7 @@
 
 typedef int ElemType;
 
-// HeadLink(保存HeadNode的地址) -> HeadNode -> LNode -> LNode -> ··· -> LNode -> NULL
+// L(保存HeadNode的地址) -> LNode -> LNode -> ··· -> LNode -> NULL
 
 typedef struct LNode{
     ElemType data;// 数据域
@@ -61,7 +61,7 @@ LinkList List_TailInsert(LinkList L)
 LNode *GetElem(LinkList L, int i)
 {
     int j = 1;
-    LNode *p = L->next;// p指向头结点
+    LNode *p = L->next;
     if(i == 0)
     {
         return p;
@@ -81,7 +81,7 @@ LNode *GetElem(LinkList L, int i)
 // 按值查找元素，查找成功则返回该结点的指针，否则返回NULL
 LNode *LocateElem(LinkList L, ElemType e)
 {
-    LNode *p = L->next;// 头结点
+    LNode *p = L->next;
     while(p->next && p->data != e)
     {
         p = p->next;// 继续往后查找
