@@ -20,7 +20,6 @@ int main()
         printf("失败\n");
     }
     
-
     LinkList L2 = List_TailInsert(L2);
     printf("插入前的链表为：\n");
     ShowLinkListInfo(L2);
@@ -34,8 +33,6 @@ int main()
     L2 = ListDelete(L2, 1, &e);
     ShowLinkListInfo(L2);
     printf("被删除的第一个结点的内容为%d\n", e);
-
-
 
     return 0;
 }
