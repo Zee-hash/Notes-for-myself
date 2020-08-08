@@ -1,15 +1,6 @@
 #include <stdio.h>
-#include <stdbool.h>
 #include <stdlib.h>
-
-typedef int ElemType;
-
-// L(保存HeadNode的地址) -> LNode -> LNode -> ··· -> LNode -> NULL
-
-typedef struct LNode{
-    ElemType data;// 数据域
-    struct LNode * next;// 指针域
-}LNode, *LinkList;
+#include "LinkList.h"
 
 // 使用头插法建立链表
 LinkList List_HeadInsert(LinkList L)
@@ -144,6 +135,7 @@ LNode *ListDelete(LinkList L, int i, ElemType *e)
     return L;
 }
 
+// 显示链表中各结点的逻辑关系
 void ShowLinkListInfo(LinkList L)
 {
     int length = ListLength(L);
@@ -163,17 +155,4 @@ void ShowLinkListInfo(LinkList L)
         printf("-->%d-->NULL", p->data);
         printf("\nLength of LinkList : %d\n", length);
     }
-}
-
-int main()
-{
-    LinkList L = NULL;
-    L = List_HeadInsert(L);
-    ShowLinkListInfo(L);
-    L = ListInsert(L, 2, 9);
-    ShowLinkListInfo(L);
-    ElemType e = 0;
-    L = ListDelete(L, 3, &e);
-    printf("element %d has been deleted.\n", e);
-    ShowLinkListInfo(L);
 }

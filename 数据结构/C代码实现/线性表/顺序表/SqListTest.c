@@ -39,5 +39,7 @@ int main()
     else
     {
         printf("查找元素成功");
-    }    
+    }
+
+    return 0;
 }

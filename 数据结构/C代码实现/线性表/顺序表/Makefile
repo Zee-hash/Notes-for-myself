@@ -1,7 +1,7 @@
-test:test.o SqList.o
-	gcc test.o SqList.o -o test
-test.o:test.c
-	gcc -c test.c
+SqListTest:SqListTest.o SqList.o
+	gcc SqListTest.o SqList.o -o SqListTest
+SqListTest.o:SqListTest.c
+	gcc -c SqListTest.c
 SqList.o:SqList.c
 	gcc -c SqList.c
 
