@@ -55,7 +55,7 @@ LNode *GetElem(LinkList L, int i)
     LNode *p = L->next;
     if(i == 0)
     {
-        return p;
+        return L;// 返回头指针，可用于插入1号位置时前驱0的返回值
     }
     if(i < 1)
     {
@@ -73,11 +73,19 @@ LNode *GetElem(LinkList L, int i)
 LNode *LocateElem(LinkList L, ElemType e)
 {
     LNode *p = L->next;
+
+    // 若恰好最后一个结点不是所查询的结点，以下代码失效
     while(p->next && p->data != e)
     {
         p = p->next;// 继续往后查找
     }
+    if(p->data != e)
+    {
+        // 处理以上代码短路情形
+        return NULL;
+    }
     return p;
+    
 }
 
 // 返回链表长度，长度为0表示链表仅含头结点
@@ -99,12 +107,13 @@ LNode *ListInsert(LinkList L, int i, ElemType e)
     // 检查插入位置的合法性
     if(i < 1 || i > ListLength(L) + 1)
     {
-        printf("插入位置有误\n");
+        printf("插入位置有误，返回原链表\n");
         return L;// 插入位置错误，原样返回
     }
     LNode *s = (LinkList)malloc(sizeof(LNode));
     s->data = e;
     LNode *p;
+    
     if((p = GetElem(L,i-1)))
     {
         s->next = p->next;
@@ -119,7 +128,7 @@ LNode *ListDelete(LinkList L, int i, ElemType *e)
     // 检查删除位置的合法性
     if(i < 1 || i > ListLength(L))
     {
-        printf("删除位置有误\n");
+        printf("删除位置有误，返回原链表\n");
         return L;// 删除位置错误，原样返回
     }
     // 保存结点信息
